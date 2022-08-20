@@ -1,4 +1,4 @@
-import { Board, GameState } from "../App.models";
+import { GameState } from "../App.models";
 import { createContext, useContext } from "react";
 
 export type GameContext = {
