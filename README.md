@@ -11,12 +11,12 @@ Make sure you have [Nodejs](https://nodejs.org/) and [Yarn](https://yarnpkg.com/
 
 ```bash
 $ cd server
-$ yarn install   
+$ yarn install
 $ yarn start 
 ```
 ```bash
 $ cd client
-$ yarn install   
+$ yarn install
 $ yarn start 
 ```
 navigate to - http://localhost:3000/
