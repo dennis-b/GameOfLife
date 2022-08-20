@@ -12,6 +12,16 @@ export const StyledApp = styled.div`
   align-items: center;;
   justify-content: center;
 `
+
+export const StyledLoaderContainer = styled.div`
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`
 export const StyledBox: any = styled.div<any>`
   margin-top: ${({ mt }: { mt: string }) => mt && resolveSpacingSize(mt)};
   margin-bottom: ${({ mb }: { mb: string }) => mb && resolveSpacingSize(mb)};

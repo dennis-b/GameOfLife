@@ -5,11 +5,12 @@ import { useGameState } from "../Game.api.hooks";
 import { GameContextProvider } from "../../GameContext/GameContextProvider";
 import { GamePlaySubscriber } from "./GamePlaySubscriber";
 import { GameHeader } from "../Header/GameHeader";
+import { GameLoader } from "../GameLoader";
 
 export const Game: React.FC = () => {
   const { data, isLoading } = useGameState()
   if (isLoading) {
-    return <div>Loading...</div>
+    return <GameLoader />
   }
   return (
     <GameContextProvider gameState={data?.game}>
