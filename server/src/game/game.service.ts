@@ -16,7 +16,6 @@ export class GameService {
   ) {
   }
 
-
   getGameState() {
     return this.gameState
   }

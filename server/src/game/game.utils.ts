@@ -17,14 +17,7 @@ export function initGame(): GameState {
 export function getNextBoard(board: Board) {
   let isAllDead = true
   const nextStepBoard = board.map((row, i) => row.map((cell, j) => {
-      let sum = 0
-      CELLS_POSITIONS.forEach((position) => {
-        const x = i + position[0]
-        const y = j + position[1]
-        if (x >= 0 && x < ROWS && y >= 0 && y < COLS) {
-          sum += board[x][y] ? 1 : 0
-        }
-      })
+      const sum = getNeighboursNum({ i, j, board })
       if (sum < 2 || sum > 3) {
         return false
       }
@@ -32,8 +25,22 @@ export function getNextBoard(board: Board) {
         isAllDead = false
         return true
       }
-      return board[i][j]
+      const cellVal = board[i][j];
+      cellVal && (isAllDead = false);
+      return cellVal;
     })
   )
   return { board: nextStepBoard, isAllDead }
+}
+
+function getNeighboursNum({ i, j, board }: { i: number, j: number, board: Board }) {
+  let sum = 0;
+  CELLS_POSITIONS.forEach((position) => {
+    const x = i + position[0];
+    const y = j + position[1];
+    if (x >= 0 && x < ROWS && y >= 0 && y < COLS) {
+      sum += board[x][y] ? 1 : 0;
+    }
+  });
+  return sum;
 }
