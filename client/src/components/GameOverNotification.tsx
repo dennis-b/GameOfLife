@@ -5,17 +5,11 @@ import CloseIcon from '@mui/icons-material/Close';
 
 export const GameOverNotification = ({ open, onOpen }: { open: boolean, onOpen: (open: boolean) => void }) => {
 
-  const handleClose = (e: any, reason: string) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    onOpen(false);
-  };
+  const handleClose = () => onOpen(false);
 
   const action = (
     <IconButton
       size="small"
-      aria-label="close"
       color="inherit"
       onClick={handleClose}
     >
