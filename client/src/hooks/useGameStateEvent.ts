@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { BASE_API_URL } from "../App.constants";
 import { useGameContext } from "../GameContext/GameContext";
+const BASE_API_URL = import.meta.env.VITE_BASE_API_URL
 
 export function useGameStateEvent() {
 

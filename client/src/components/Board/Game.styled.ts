@@ -27,5 +27,8 @@ export const StyledCell = styled.div`
 export const StyledHeader = styled(Stack)`
   align-items: center;
   justify-content: center;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+
 `
 

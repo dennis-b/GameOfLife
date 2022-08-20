@@ -1,9 +1,9 @@
 import { useMutation, useQuery } from "react-query";
-import { BASE_API_URL } from "../App.constants";
 import { GameConfigState } from "../App.models";
 import { useGameContext } from "../GameContext/GameContext";
 
 const headers = { 'Content-Type': 'application/json' }
+const BASE_API_URL = import.meta.env.VITE_BASE_API_URL
 
 export function useGameState({ parseData }: { parseData?: (data: GameConfigState) => GameConfigState } = {}) {
   const url = `${BASE_API_URL}/game`
