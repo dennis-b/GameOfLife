@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Stack } from "@mui/material";
 import { useGameNext, useGameStart, useGameStateReset, useGameStop } from "../Game.api.hooks";
 
-export const Actions = ({ isGameRunning }: { isGameRunning: boolean }) => {
+export const Actions = ({ isGameRunning }: { isGameRunning: boolean | undefined }) => {
 
   const onResetMutation = useGameStateReset()
   const onNextMutation = useGameNext()
