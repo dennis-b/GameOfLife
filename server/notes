@@ -1,0 +1,4 @@
+Deploy server to heroku
+
+From root dir :
+ git subtree push --prefix server heroku master
