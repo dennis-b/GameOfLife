@@ -1,13 +1,13 @@
 import { useMutation, useQuery } from "react-query";
 import { GameConfigState } from "../App.models";
-import { useGameContext } from "../GameContext/GameContext";
+import { useGameApiContext, useGameContext } from "../GameContext/GameContext";
 
 const headers = { 'Content-Type': 'application/json' }
 const BASE_API_URL = import.meta.env.VITE_BASE_API_URL
 
 export function useGameState({ parseData }: { parseData?: (data: GameConfigState) => GameConfigState } = {}) {
   const url = `${BASE_API_URL}/game`
-  const { setGame } = useGameContext()
+  const { setGame } = useGameApiContext()
   return useQuery(
     "gameState",
     async () => {
@@ -22,7 +22,7 @@ export function useGameState({ parseData }: { parseData?: (data: GameConfigState
 
 export function useGameStateReset() {
   const url = `${BASE_API_URL}/game/reset`
-  const { setGame } = useGameContext()
+  const { setGame } = useGameApiContext()
   return useMutation(
     () => {
       const config = { method: 'POST', headers };
@@ -36,7 +36,7 @@ export function useGameStateReset() {
 
 export function useGameNext() {
   const url = `${BASE_API_URL}/game/next`
-  const { setGame } = useGameContext()
+  const { setGame } = useGameApiContext()
   return useMutation(
     () => {
       const config = { method: 'POST', headers };
@@ -62,7 +62,7 @@ export function useGameStop() {
 
 export function useUpdateGameCell() {
   const url = `${BASE_API_URL}/game/update`
-  const { setGame } = useGameContext()
+  const { setGame } = useGameApiContext()
   return useMutation(
     ({ row, col, value }: { row: number, col: number, value: boolean }) => {
       const config = {

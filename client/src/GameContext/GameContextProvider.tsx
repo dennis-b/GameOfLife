@@ -1,24 +1,28 @@
 import React, { useMemo, useState } from 'react';
 import { GameState } from "../App.models";
-import { GameCtx } from './GameContext';
-
+import { GameCtx, GameCtxApi } from './GameContext';
 
 type GameContextProviderProps = {
-  children: React.ReactNode;
-  gameState?: GameState
+    children: React.ReactNode;
+    gameState?: GameState
 };
 
-export const GameContextProvider: React.FC<GameContextProviderProps> = ({ children,gameState }) => {
-  const [game, setGame] = useState<GameState | undefined>(gameState);
-  const value = useMemo(
-    () => ({ game, setGame }),
-    [game]
-  );
+export const GameContextProvider: React.FC<GameContextProviderProps> = ({ children, gameState }) => {
+    const [game, setGame] = useState<GameState | undefined>(gameState);
+    const gameCtxValue = useMemo(
+        () => ({ game }),
+        [game]
+    );
+    const gameCtxApiValue = useMemo(
+        () => ({ setGame }), []
+    );
 
-  return (
-    <GameCtx.Provider value={value}>
-      {children}
-    </GameCtx.Provider>
-  );
+    return (
+        <GameCtxApi.Provider value={gameCtxApiValue}>
+            <GameCtx.Provider value={gameCtxValue}>
+                {children}
+            </GameCtx.Provider>
+        </GameCtxApi.Provider>
+    );
 };
 
