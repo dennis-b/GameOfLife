@@ -1,5 +1,5 @@
 # Description
-Game of Life app, build with [React](https://reactjs.org/) and [NestJS](https://nestjs.com/)
+Game of Life app, built with [React](https://reactjs.org/) and [NestJS](https://nestjs.com/)
 
 # Demo
 [https://game-of-life-app.vercel.app](https://game-of-life-app.vercel.app)
